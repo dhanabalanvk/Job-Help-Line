@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Job Help Line</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.rawgit.com/esvit/ng-table/v1.0.0/dist/ng-table.min.css">
+<script
+	src="https://cdn.rawgit.com/esvit/ng-table/v1.0.0/dist/ng-table.js"></script>
+<script src="applicationJsFiles/app.js"></script>
+<script src="applicationJsFiles/jobs.js"></script>
+</head>
+<body ng-app="dhanaJobsApp">
+	sivasakthi - new
+	<div ng-controller="jobDetailsCntrl">
+
+
+
+		<table class="table">
+			<tr ng-repeat="job in jobs" ng-click="getJob(job)">
+				<td >{{job.jobId}}</td>
+				<td>{{job.jobNature}}</td>
+				<td>{{job.jobLocation}}</td>
+				<td>{{job.expLevel}}</td>
+			</tr>
+		</table>
+		<div>
+	<br>
+		my Job Detail :
+		<br>
+		
+		Id : {{myJob.jobId}} <br>
+		Nature : {{myJob.jobNature}} <br>
+		Location : {{myJob.jobLocation}} <br>
+		Experience : {{myJob.expLevel}} <br>
+		Description : {{myJob.jobDescription}} <br>
+		
+	</div>
+	</div>
+	
+	
+</body>
+</html>
