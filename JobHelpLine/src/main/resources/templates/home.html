@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html   xmlns:th="http://www.thymeleaf.org" lang="en"
+        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+    <head>
+        <title>Hello World!</title>
+    </head>
+    <body>
+    Email id:
+    
+    
+Logged user: <span sec:authentication="name"></span>
+Roles: <span sec:authentication="principal.authorities"> </span>
+
+         <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+        
+        <div sec:authentication="name">
+    The value of the "name" property of the authentication object should appear here.
+</div> 
+<div sec:authorize="hasAuthority('USER')">
+  This content is only shown to users.
+</div>
+<div sec:authorize="hasAuthority('ADMIN')">
+    This content is only shown to administrators.
+</div>
+
+<div sec:authorize="isAuthenticated()">
+AUTHENTICATED
+</div>
+
+<div sec:authorize="isAnonymous()">
+NO
+</div>
+    </body>
+</html>
